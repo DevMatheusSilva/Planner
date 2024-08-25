@@ -23,9 +23,5 @@
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2"
-  },
-  "dependencies": {
-    "express-handlebars": "^8.0.1",
-    "handlebars": "^4.7.8"
   }
 }

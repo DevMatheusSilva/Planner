@@ -1,9 +1,9 @@
 import express from 'express';
-import userRouter from './user.router';
+import pages from './pages.routes';
 
 const routes = (app: express.Application): void => {
     app.get('/', (_, res) => res.status(200).send('Helo World!'));
-    app.use(userRouter);
+    app.use(pages);
 };
 
 export default routes;
