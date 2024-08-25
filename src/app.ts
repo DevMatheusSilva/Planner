@@ -1,9 +1,11 @@
 import express from 'express';
+import routes from './controllers/routes/routes';
+import { setupHandlebars } from './controllers/middlewares/handlebars';
 
 const app = express();
+setupHandlebars(app);
 
-app.get('/', (_, res) => {
-  res.status(200).send('Helo World!');
-});
+app.use(express.json());
+routes(app);
 
 export default app;
