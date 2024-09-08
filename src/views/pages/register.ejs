@@ -1,11 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
-</head>
-<body>
+<form id="login-form" class="login-form">
+    <div class="form-email">
+        <label for="input-email">Your new email here</label>
+        <input id="input-email" class="input-email" name="email" type="email">
+    </div>
+    <div class="form-password">
+        <label for="input-password">Your new password here</label>
+        <input id="input-password" class="input-password" name="password" type="password">
+    </div>
+    <div class="form-password">
+        <label for="input-password">Your password again here</label>
+        <input id="input-password" class="input-password" name="password" type="password">
+    </div>
+    <span id="form-error" class="form-error" hidden>❗Email ou senha incorretos</span>
+    <div class="form-button"><button type="submit">Join</button></div>
 
-</body>
-</html>
+</form>

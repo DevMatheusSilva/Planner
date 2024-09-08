@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<%= cssLink %>">
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="login-body-content">
+        <header id="header-login">
+            <div class="header-content">
+                <img src="../assets/LOGO-PLANNER-LOGIN.png" alt="Logo">
+                <img src="../assets/LOGIN-WELCOME-MESSAGE.png" alt="Welcome">
+            </div>
+        </header>
+        <main>
+            <%- include(page) %>
+        </main>
+    </div>
+    <div class="logon">
+        <% if (type === "register") { %>
+            <p>Already a user ?? This <a href="http://localhost:3000/users/login">way</a></p>
+        <% } else { %>
+            <p>Oh, you're a newcomer? Join us <a href="http://localhost:3000/users/register">here</a></p>
+        <% } %>
+    </div>
+</body>
+</html>

@@ -1,3 +1,38 @@
+html, body {
+    width: 100%;
+    font-family: 'Itim', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.header-content > img:nth-child(1) {
+    width: 50%;
+    max-width: 300px;
+}
+
+.header-content > img:nth-child(2) {
+    width: 40%;
+    max-width: 200px;
+}
+
 .login-form {
     display: flex;
     flex-direction: column;
@@ -69,3 +104,15 @@
     font-size: 0.9rem;
 }
 
+.logon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    font-size: 0.9rem;
+}
+
+.logon > p > a {
+    text-decoration: none;
+    color: #51D6FF;
+}

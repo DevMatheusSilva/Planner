@@ -1,39 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/login/login.css">
-    <title><%= title %></title>
-</head>
-<body>
-    <div class="login-body-content">
-        <header id="header-login">
-            <div class="header-content">
-                <img src="../assets/LOGO-PLANNER-LOGIN.png" alt="">
-                <img src="../assets/LOGIN-WELCOME-MESSAGE.png" alt="">
-            </div>
-        </header>
-        <main id="form">
-            <form id="login-form" class="login-form">
-                <div class="form-email">
-                    <label for="input-email">Your email here</label>
-                    <input id="input-email" class="input-email" name="email" type="email">
-                </div>
-                <div class="form-password">
-                    <label for="input-password">Your password here</label>
-                    <input id="input-password" class="input-password" name="password" type="password">
-                    <a href="#"><p>Forgot your password ?</p></a>
-                </div>
-                <span id="form-error" class="form-error" hidden>❗Email ou senha incorretos</span>
-                <div class="form-button"><button type="submit">Login</button></div>
-            </form>
-        </main>
-        <footer id="logon">
-            <div class="logon">
-                <p>Oh, you're a newcomer ? Join us <a href="#">here</a></p>
-            </div>
-        </footer>
+<form id="login-form" class="login-form">
+    <div class="form-email">
+        <label for="input-email">Your email here</label>
+        <input id="input-email" class="input-email" name="email" type="email">
     </div>
-</body>
-</html>
+    <div class="form-password">
+        <label for="input-password">Your password here</label>
+        <input id="input-password" class="input-password" name="password" type="password">
+        <a href="#"><p>Forgot your password ?</p></a>
+    </div>
+    <span id="form-error" class="form-error" hidden>❗Email ou senha incorretos</span>
+    <div class="form-button"><button type="submit">Login</button></div>
+</form>
