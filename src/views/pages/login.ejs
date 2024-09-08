@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/login/login.css">
-    <title>Planner - Welcome !!</title>
+    <link rel="stylesheet" href="../styles/login/login.css">
+    <title><%= title %></title>
 </head>
 <body>
     <div class="login-body-content">
         <header id="header-login">
             <div class="header-content">
-                <img src="/assets/LOGO-PLANNER-LOGIN.png" alt="">
-                <img src="/assets/LOGIN-WELCOME-MESSAGE.png" alt="">
+                <img src="../assets/LOGO-PLANNER-LOGIN.png" alt="">
+                <img src="../assets/LOGIN-WELCOME-MESSAGE.png" alt="">
             </div>
         </header>
         <main id="form">
-            <form id="login-form" class="login-form" onsubmit="validateForm(event)">
+            <form id="login-form" class="login-form">
                 <div class="form-email">
                     <label for="input-email">Your email here</label>
                     <input id="input-email" class="input-email" name="email" type="email">
@@ -34,7 +34,6 @@
                 <p>Oh, you're a newcomer ? Join us <a href="#">here</a></p>
             </div>
         </footer>
-        <script src="/scripts/validation.js"></script>
     </div>
 </body>
 </html>
