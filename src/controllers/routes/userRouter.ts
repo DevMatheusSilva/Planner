@@ -1,9 +1,9 @@
 import { Router } from 'express';
+import UserController from "../UserController";
 
 const userRouter = Router();
 
-userRouter.get('/login', (_, res) => {
-    res.render("./pages/login.ejs", {title: "Planner - Welcome !!"});
-});
+userRouter.get('/login', UserController.renderLoginPage);
+userRouter.get('/register', UserController.renderRegisterPage);
 
 export default userRouter;
