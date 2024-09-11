@@ -23,6 +23,6 @@ export default class UserController {
     }
 
     public renderRegisterPage(_: Request, res: Response) {
-        this.renderPage(res, "Planner - Join Us !!", "../pages/register", "register");
+        this.renderPage(res, "Planner - Join us !!", "../pages/register", "register");
     }
 }

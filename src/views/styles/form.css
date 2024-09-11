@@ -9,26 +9,19 @@ html, body {
     box-sizing: border-box;
 }
 
-.header-login {
+.header-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
 
-.header-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.header-content > img:nth-child(1) {
+.header-wrapper > img:nth-child(1) {
     width: 50%;
     max-width: 300px;
 }
 
-.header-content > img:nth-child(2) {
+.header-wrapper > img:nth-child(2) {
     width: 40%;
     max-width: 200px;
 }
