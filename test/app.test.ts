@@ -9,6 +9,6 @@ describe('Testing default route', () => {
 
     it("Should return 'Hello World!'", async () => {
         const response = await request(app).get('/');
-        expect (response.text).toBe('Helo World!');
+        expect (response.text).toBe('Hello World!');
     });
 });

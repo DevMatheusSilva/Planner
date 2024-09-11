@@ -1,9 +1,12 @@
-import express from 'express';
-import pages from './pages.routes';
+import express from "express";
+import userRouter from "./userRouter";
 
-const routes = (app: express.Application): void => {
-    app.get('/', (_, res) => res.status(200).send('Helo World!'));
-    app.use(pages);
-};
+const routes = (app: express.Application) => {
+    app.get('/', (_, res) => {
+        res.redirect("/users/login");
+    });
+
+    app.use('/users', userRouter);
+}
 
 export default routes;

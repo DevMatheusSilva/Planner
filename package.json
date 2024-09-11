@@ -4,7 +4,7 @@
   "description": "A daily task planner to reinforce concepts in Node, TS, Prisma and HTML and CSS",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node dist/server.js",
+    "start": "tsx watch src/server.ts",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles",
     "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles --watch",
     "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles --watch --coverage"
@@ -19,9 +19,11 @@
     "@types/supertest": "^6.0.2",
     "express": "^4.19.2",
     "jest": "^29.7.0",
-    "nodemon": "^3.1.4",
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.5",
-    "ts-node": "^10.9.2"
+    "tsx": "^4.19.0"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10"
   }
 }
