@@ -1,4 +1,4 @@
-export default class CreatedTask {
+export default class CreatedTaskDTO {
     name: string;
     description: string;
     createdAt: Date;
