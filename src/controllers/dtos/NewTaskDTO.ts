@@ -8,8 +8,4 @@ export default class NewTaskDTO {
         this.description = description;
         this.dueDate = dueDate;
     }
-
-    public static fromObject(obj: any): NewTaskDTO {
-        return new NewTaskDTO(obj.name, obj.description, obj.dueDate);
-    }
 }
