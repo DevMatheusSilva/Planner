@@ -1,7 +1,7 @@
 import express from 'express';
-import routes from './controllers/routes/routes';
-import expressStaticSetUp from './controllers/middlewares/expressStatic';
-import viewConfig from "./controllers/middlewares/expressViews";
+import routes from './routes/routes';
+import expressStaticSetUp from './middlewares/expressStatic';
+import viewConfig from "./middlewares/expressViews";
 
 const app = express();
 
