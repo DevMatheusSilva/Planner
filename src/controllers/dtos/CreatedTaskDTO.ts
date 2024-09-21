@@ -7,15 +7,11 @@ export default class CreatedTaskDTO {
     dueDate: Date;
     isDone: boolean;
 
-    constructor(name: string, description: string, createdAt: Date, dueDate: Date, isDone: boolean) {
-        this.name = name;
-        this.description = description;
-        this.createdAt = createdAt;
-        this.dueDate = dueDate;
-        this.isDone = isDone;
-    }
-
-    static fromTask(task: Task): CreatedTaskDTO {
-        return new CreatedTaskDTO(task.name, task.description, task.createdAt, task.dueDate, task.isDone);
+    constructor(task: Task) {
+        this.name = task.name;
+        this.description = task.description;
+        this.createdAt = task.createdAt;
+        this.dueDate = task.dueDate;
+        this.isDone = task.isDone;
     }
 }

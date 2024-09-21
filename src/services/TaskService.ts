@@ -13,11 +13,11 @@ export default class TaskService {
     async save(newTask: NewTaskDTO): Promise<CreatedTaskDTO> {
         const task = new Task(newTask.name, newTask.description, false, new Date(), newTask.dueDate);
         const result = await this.repository.save(task);
-        return CreatedTaskDTO.fromTask(result);
+        return new CreatedTaskDTO(result);
     }
 
     async findAll(): Promise<CreatedTaskDTO[]> {
         const result = await this.repository.findAll();
-        return result.map(task => CreatedTaskDTO.fromTask(task));
+        return result.map(task => new CreatedTaskDTO(task));
     }
 }
