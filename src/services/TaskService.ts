@@ -1,8 +1,9 @@
 import Task from '../entities/Task';
 import Repository from "../repositories/Repository";
-import NewTaskDTO from "../controllers/dtos/NewTaskDTO";
+import NewTask from "../controllers/dto/NewTask";
 import TaskNotFound from "./errors/TaskNotFound";
-import CreatedTaskDTO from "../controllers/dtos/CreatedTaskDTO";
+import CreatedTask from "../controllers/dto/CreatedTask";
+import UpdatedTask from "../controllers/dto/UpdatedTask";
 
 export default class TaskService {
     repository: Repository<Task>;
@@ -11,39 +12,36 @@ export default class TaskService {
         this.repository = repository;
     }
 
-    async save(newTask: NewTaskDTO): Promise<CreatedTaskDTO> {
+    async save(newTask: NewTask): Promise<CreatedTask> {
         const task = new Task(newTask.name, newTask.description, false, new Date(), newTask.dueDate);
         const result = await this.repository.save(task);
-        return new CreatedTaskDTO(result);
+        return new CreatedTask(result);
     }
 
-    async findAll(): Promise<CreatedTaskDTO[]> {
+    async findAll(): Promise<CreatedTask[]> {
         return await this.repository.findAll();
-        // return result.map(task => new CreatedTaskDTO(task));
+        // return result.map(task => new CreatedTask(task));
     }
 
-    async findById(id: number): Promise<CreatedTaskDTO | null> {
+    async findById(id: number): Promise<CreatedTask | null> {
         const result = await this.repository.findById(id);
         if (result) {
-            return new CreatedTaskDTO(result);
+            return new CreatedTask(result);
         }
         else {
             throw new TaskNotFound(`Task with id: ${id} not found`);
         }
     }
 
-    async updateTask(id: number, newBody: NewTaskDTO): Promise<CreatedTaskDTO | null> {
+    async updateTask(id: number, newBody: UpdatedTask): Promise<CreatedTask | null> {
         const taskFound = await this.repository.findById(id);
         if (!taskFound) {
             throw new TaskNotFound(`Task with id: ${id} not found`);
         }
 
-        taskFound.name = newBody.name;
-        taskFound.description = newBody.description;
-        taskFound.dueDate = newBody.dueDate;
+        Object.assign(taskFound, newBody);
 
         const result = await this.repository.update(id, taskFound);
-
-        return new CreatedTaskDTO(result);
+        return new CreatedTask(result);
     }
 }
