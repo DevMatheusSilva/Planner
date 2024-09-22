@@ -18,16 +18,32 @@ export default class TaskService {
     }
 
     async findAll(): Promise<CreatedTaskDTO[]> {
-        const result = await this.repository.findAll();
-        return result.map(task => new CreatedTaskDTO(task));
+        return await this.repository.findAll();
+        // return result.map(task => new CreatedTaskDTO(task));
     }
 
     async findById(id: number): Promise<CreatedTaskDTO | null> {
         const result = await this.repository.findById(id);
         if (result) {
             return new CreatedTaskDTO(result);
-        } else {
+        }
+        else {
             throw new TaskNotFound(`Task with id: ${id} not found`);
         }
+    }
+
+    async updateTask(id: number, newBody: NewTaskDTO): Promise<CreatedTaskDTO | null> {
+        const taskFound = await this.repository.findById(id);
+        if (!taskFound) {
+            throw new TaskNotFound(`Task with id: ${id} not found`);
+        }
+
+        taskFound.name = newBody.name;
+        taskFound.description = newBody.description;
+        taskFound.dueDate = newBody.dueDate;
+
+        const result = await this.repository.update(id, taskFound);
+
+        return new CreatedTaskDTO(result);
     }
 }

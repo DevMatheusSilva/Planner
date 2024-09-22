@@ -41,4 +41,18 @@ export default class TaskController {
             res.status(404).send({ message: error.message });
         }
     }
+
+    public async updateTask(req: Request, res: Response) {
+        const id = req.params.id;
+        const { name, description, dueDate } = req.body;
+        console.log(name, description, dueDate);
+        const newBody = new NewTaskDTO(name, description, dueDate);
+        try {
+            const result = await this.service.updateTask(Number(id), newBody);
+            res.status(200).send(result);
+        } catch (err: any) {
+            const error = err as Error;
+            res.status(404).send({ message: error.message });
+        }
+    }
 }
