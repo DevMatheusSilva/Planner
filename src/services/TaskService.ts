@@ -38,10 +38,16 @@ export default class TaskService {
         if (!taskFound) {
             throw new TaskNotFound(`Task with id: ${id} not found`);
         }
-
         Object.assign(taskFound, newBody);
-
         const result = await this.repository.update(id, taskFound);
         return new CreatedTask(result);
+    }
+
+    async deleteTask(id: number): Promise<void> {
+        const taskFound = await this.repository.findById(id);
+        if (!taskFound) {
+            throw new TaskNotFound(`Task with id: ${id} not found`);
+        }
+        await this.repository.delete(id);
     }
 }

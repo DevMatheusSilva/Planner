@@ -5,4 +5,5 @@ export default interface Repository<T> {
     findAll(): Promise<T[]>;
     findById(id: number): Promise<T | null>;
     update(id: number, newBody: T): Promise<T>;
+    delete(id: number): Promise<void>;
 }

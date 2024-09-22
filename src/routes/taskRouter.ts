@@ -10,5 +10,6 @@ taskRouter.post('/', (req: Request, res: Response) => controller.createTask(req,
 taskRouter.get('/', (req: Request, res: Response) => controller.getAllTasks(req, res));
 taskRouter.get('/:id', (req: Request, res: Response) => controller.getTaskById(req, res));
 taskRouter.put('/:id', (req: Request, res: Response) => controller.updateTask(req, res));
+taskRouter.delete('/:id', (req: Request, res: Response) => controller.deleteTask(req, res));
 
 export default taskRouter;
