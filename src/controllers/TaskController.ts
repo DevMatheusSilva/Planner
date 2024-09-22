@@ -46,10 +46,20 @@ export default class TaskController {
     public async updateTask(req: Request, res: Response) {
         const id = req.params.id;
         const newBody = new UpdatedTask(req.body);
-
         try {
             const result = await this.service.updateTask(Number(id), newBody);
             res.status(200).send(result);
+        } catch (err: any) {
+            const error = err as Error;
+            res.status(404).send({ message: error.message });
+        }
+    }
+
+    public async deleteTask(req: Request, res: Response) {
+        const id = req.params.id;
+        try {
+            await this.service.deleteTask(Number(id));
+            res.status(200).send({message: "Task deleted"});
         } catch (err: any) {
             const error = err as Error;
             res.status(404).send({ message: error.message });

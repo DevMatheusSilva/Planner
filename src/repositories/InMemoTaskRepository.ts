@@ -40,4 +40,12 @@ export default class InMemoTaskRepository implements Repository<Task> {
            return resolve(this.items[updateIndex]);
         });
     }
+
+    async delete(id: number): Promise<void> {
+        return new Promise<void> ((resolve, _) => {
+           const index = this.items.findIndex(task => task.id === id);
+           this.items.splice(index, 1);
+           resolve();
+        });
+    }
 }
