@@ -1,6 +1,7 @@
 import Task from '../entities/Task';
 import Repository from "../repositories/Repository";
 import NewTaskDTO from "../controllers/dtos/NewTaskDTO";
+import TaskNotFound from "./errors/TaskNotFound";
 import CreatedTaskDTO from "../controllers/dtos/CreatedTaskDTO";
 
 export default class TaskService {
@@ -19,5 +20,14 @@ export default class TaskService {
     async findAll(): Promise<CreatedTaskDTO[]> {
         const result = await this.repository.findAll();
         return result.map(task => new CreatedTaskDTO(task));
+    }
+
+    async findById(id: number): Promise<CreatedTaskDTO | null> {
+        const result = await this.repository.findById(id);
+        if (result) {
+            return new CreatedTaskDTO(result);
+        } else {
+            throw new TaskNotFound(`Task with id: ${id} not found`);
+        }
     }
 }

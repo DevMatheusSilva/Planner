@@ -21,4 +21,15 @@ export default class InMemoTaskRepository implements Repository<Task> {
             resolve(tasks);
         });
     }
+
+    async findById(id: number): Promise<Task | null> {
+        return new Promise<Task | null>((resolve, _) => {
+            const taskFound = this.items.find(task => task.id === id);
+            if (taskFound) {
+                resolve(taskFound);
+            } else {
+                resolve(null);
+            }
+        });
+    }
 }

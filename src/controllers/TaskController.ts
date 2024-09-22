@@ -17,7 +17,7 @@ export default class TaskController {
             res.status(201).send(result);
         } catch (err: any) {
             const error = err as Error;
-            res.status(400).send(error.message);
+            res.status(400).send(error);
         }
     }
 
@@ -27,7 +27,18 @@ export default class TaskController {
             res.status(200).send(result);
         } catch (err: any) {
             const error = err as Error;
-            res.status(400).send(error.message);
+            res.status(400).send(error);
+        }
+    }
+
+    public async getTaskById(req: Request, res: Response) {
+        const id = req.params.id;
+        try {
+            const result = await this.service.findById(Number(id));
+            res.status(200).send(result);
+        } catch (err: any) {
+            const error = err as Error;
+            res.status(404).send({ message: error.message });
         }
     }
 }
