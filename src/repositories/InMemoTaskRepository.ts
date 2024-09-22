@@ -32,4 +32,12 @@ export default class InMemoTaskRepository implements Repository<Task> {
             }
         });
     }
+
+    async update(id: number, newBody: Task): Promise<Task> {
+        return new Promise<Task> ((resolve, _) => {
+           const updateIndex = this.items.findIndex(task => task.id === id);
+           this.items[updateIndex] = newBody;
+           return resolve(this.items[updateIndex]);
+        });
+    }
 }

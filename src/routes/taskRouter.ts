@@ -9,5 +9,6 @@ const controller = new TaskController(new TaskService(new InMemoTaskRepository()
 taskRouter.post('/', (req: Request, res: Response) => controller.createTask(req, res));
 taskRouter.get('/', (req: Request, res: Response) => controller.getAllTasks(req, res));
 taskRouter.get('/:id', (req: Request, res: Response) => controller.getTaskById(req, res));
+taskRouter.put('/:id', (req: Request, res: Response) => controller.updateTask(req, res));
 
 export default taskRouter;

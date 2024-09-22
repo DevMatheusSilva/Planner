@@ -1,4 +1,4 @@
-export default class NewTaskDTO {
+export default class NewTask {
     public name: string;
     public description: string;
     public dueDate: Date;
@@ -7,9 +7,5 @@ export default class NewTaskDTO {
         this.name = name;
         this.description = description;
         this.dueDate = dueDate;
-    }
-
-    public static fromObject(obj: any): NewTaskDTO {
-        return new NewTaskDTO(obj.name, obj.description, obj.dueDate);
     }
 }
